@@ -1,12 +1,11 @@
-
 Users and Post (Spring4+Hibernate)
 ======================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * Spring4
@@ -16,14 +15,14 @@ Users and Post (Spring4+Hibernate)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (Spring4+iBatis)
 ===============================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
@@ -37,14 +36,14 @@ Users and Post (Spring4+iBatis)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (Spring4+JOOQ)
 ===============================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
@@ -58,18 +57,18 @@ Users and Post (Spring4+JOOQ)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (Spring4+JPA)
 ===============================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * Spring4
@@ -79,18 +78,18 @@ Users and Post (Spring4+JPA)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (Spring4+Hibernate+Velocity)
 =============================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * Spring4
@@ -99,18 +98,18 @@ Users and Post (Spring4+Hibernate+Velocity)
 * Velocity
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (SpringBoot+Hibernate)
 ======================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * SpringBoot
@@ -119,18 +118,18 @@ Users and Post (SpringBoot+Hibernate)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (ActFramework+Hibernate)
 ======================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * ActFramework
@@ -139,14 +138,14 @@ Users and Post (ActFramework+Hibernate)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (Vaadin+Hibernate)
 ======================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
@@ -159,18 +158,18 @@ Users and Post (Vaadin+Hibernate)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * wildfly10
 
 Users and Post (Play2+Hibernate)
 ======================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * Play2
@@ -179,7 +178,7 @@ Users and Post (Play2+Hibernate)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * wildfly10
 
@@ -187,11 +186,11 @@ Users and Post (Play2+Hibernate)
 Users and Post (Datamil+Hibernate)
 ======================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * Datamil
@@ -200,18 +199,18 @@ Users and Post (Datamil+Hibernate)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (Struts2+Hibernate)
 ======================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 
-# Stack:
+## Stack:
 
 * Gradle
 * Struts2
@@ -220,19 +219,19 @@ Users and Post (Struts2+Hibernate)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
 
 Users and Post (EAR Project)
 ======================================
 
-# Desc: 
+## Desc: 
 
 * CRUD of users and Posts.
 * Business logic and persistence logic are ejb3
 
-# Stack:
+## Stack:
 
 * Gradle
 * Spring4
@@ -242,10 +241,6 @@ Users and Post (EAR Project)
 * Thymeleaf
 * Bootstrap
 
-# Deployment:
+## Deployment:
 
 * Wildfly10
-
-
-
-

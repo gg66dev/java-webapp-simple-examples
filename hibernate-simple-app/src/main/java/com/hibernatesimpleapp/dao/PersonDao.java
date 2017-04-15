@@ -8,11 +8,7 @@ import org.hibernate.Query;
 
 import java.util.*;
 
-
 import com.hibernatesimpleapp.entity.Person;
-
-
-
 
 @Transactional
 public class PersonDao implements IPersonDao {
@@ -24,7 +20,6 @@ public class PersonDao implements IPersonDao {
 		person.setName("Ram");
 		hibernateTemplate.save(person);
 	}
-
 
 	 public List<Person> getAllPerson(){
 		List<Person> list = hibernateTemplate.getSessionFactory()

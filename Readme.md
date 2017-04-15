@@ -243,4 +243,8 @@ Users and Post (EAR Project)
 
 ## Deployment:
 
+<<<<<<< HEAD
 * Wildfly10
+=======
+* Wildfly10
+>>>>>>> 3ca80ed212edf0eb61248a61c81779cbc72c050a

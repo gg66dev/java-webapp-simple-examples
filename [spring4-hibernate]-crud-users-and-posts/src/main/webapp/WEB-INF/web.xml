@@ -7,7 +7,7 @@
   
 
     <servlet>
-        <servlet-name>helloworld</servlet-name>
+        <servlet-name>crudUsersPosts</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
         <init-param>
@@ -27,10 +27,8 @@
 
 
     <servlet-mapping>
-        <servlet-name>helloworld</servlet-name>
-        <url-pattern>/welcome.jsp</url-pattern>
-        <url-pattern>/welcome.html</url-pattern>
-        <url-pattern>*.html</url-pattern>
+        <servlet-name>crudUsersPosts</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
-  
+
 </web-app>

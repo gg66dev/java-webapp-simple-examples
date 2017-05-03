@@ -5,6 +5,7 @@ import ggp.crudup.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,22 +17,24 @@ import java.util.List;
  */
  
 @Controller
-public class HelloWorldController  {
+public class MainController {
 
 	@Autowired
 	private IUserDAO UserDAO;
 
+	@RequestMapping("/")
+	public String home(Model model) {
+		return "home";
+	}
 
 
-	@RequestMapping("/welcome")
-	public ModelAndView helloWorld() {
+
+	@RequestMapping("/users")
+	public String users(Model model) {
 
 		List<User> users = UserDAO.getAllUser();
+		model.addAttribute("users",users);
 
-		String message = users.get(0).getName();
-
-		//String message = "<br><div style='text-align:center;'>"
-		//		+ "<h3>********** Hello World, Spring MVC Tutorial</h3>This message is coming from HelloWorldController.java **********</div><br><br>";
-		return new ModelAndView("welcome", "message", message);
+		return "users";
 	}
 }

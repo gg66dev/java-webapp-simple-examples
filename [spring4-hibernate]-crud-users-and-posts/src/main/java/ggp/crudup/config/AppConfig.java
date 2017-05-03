@@ -15,6 +15,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
@@ -24,7 +26,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @EnableTransactionManagement
 @EnableWebMvc
 @ComponentScan(basePackages = "ggp.crudup")
-public class AppConfig {
+public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public IUserDAO UserDAO() {
         return new UserDAO();
@@ -63,5 +65,10 @@ public class AppConfig {
         u.setSuffix(".jsp");
         u.setViewClass(JstlView.class);
         return u;
+    }
+
+    @Override
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 }

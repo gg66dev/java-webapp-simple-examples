@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,20 +66,16 @@
     <h1> Users <h1>
         <div class="row">
             <div class="col-md-6 col-lg-6 well">
-                <form>
+                <form:form method="post" action="user-new"  modelAttribute="userForm">
                     <fieldset>
                         <legend>User</legend>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text"
-                                    class="form-control"
-                                    placeholder="Name">
+                            <form:input path="name"  cssClass="form-control" placeholder="Name"/>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email"
-                                    class="form-control"
-                                    placeholder="Email">
+                            <form:input path="email" cssClass="form-control" placeholder="Email"/>
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
@@ -120,7 +117,7 @@
                         </div>
                     </fieldset>
                     <button type="submit" class="btn btn-primary">Save</button>
-                </form>
+                </form:form>
             </div>
         </div>
 </div> <!-- /container -->

@@ -37,4 +37,9 @@ public class MainController {
 
 		return "users";
 	}
+
+	@RequestMapping("/user-new")
+	public String newUser(Model model){
+		return "user-form";
+	}
 }

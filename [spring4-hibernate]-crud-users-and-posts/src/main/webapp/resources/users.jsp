@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home</title>
+    <title>Users</title>
 
     <!-- Bootstrap core CSS -->
     <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,6 +29,18 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .glyphicon-remove{
+            cursor: pointer;
+            cursor: hand;
+        }
+    </style>
+    <script>
+        function deleteUser(){
+            console.log("click");
+        }
+    </script>
+
 </head>
 
 <body>
@@ -54,16 +66,44 @@
     </div>
 </nav>
 
-<div class="container theme-showcase" role="main">
+<div class="container theme-showcase" role="main" style="margin-top: 80px;">
 
-    <div style="margin-top: 80px;">
-        <c:forEach items="${users}" var="user">
-            ${user.name}<br>
-        </c:forEach>
+    <h1>Users</h1>
 
+    <p>
+        <a class="btn btn-primary" href="user-new" role="button">Add User</a>
+    </p>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${users}" var="user">
+            <tr>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>
+                    <a href="users/${user.id}">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <form id="delete_user" action='/users/delete' method='post'>
+                        <input type="hidden" name="id_user" value="${user.id}">
+                    </form>
+                    <i class="glyphicon glyphicon-remove" onclick="deleteUser()"></i>
+                </td>
+            </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
-</div>
-
 </div> <!-- /container -->
 
 

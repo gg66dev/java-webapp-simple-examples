@@ -79,41 +79,26 @@
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Phone">
+                            <form:input path="phone" cssClass="form-control" placeholder="Phone"/>
                         </div>
                     </fieldset>
                     <fieldset formGroupName="address">
                         <legend>Address</legend>
                         <div class="form-group">
                             <label>Street</label>
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Street">
+                            <form:input path="street" cssClass="form-control" placeholder="Street"/>
                         </div>
                         <div class="form-group">
                             <label>Suite</label>
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Suite">
+                            <form:input path="suite" cssClass="form-control" placeholder="Suite"/>
                         </div>
                         <div class="form-group">
                             <label>City</label>
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="City">
+                            <form:input path="city" cssClass="form-control" placeholder="City"/>
                         </div>
                         <div class="form-group">
                             <label>ZipCode</label>
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="ZipCode">
+                            <form:input path="zipCode" cssClass="form-control" placeholder="ZipCode"/>
                         </div>
                     </fieldset>
                     <button type="submit" class="btn btn-primary">Save</button>

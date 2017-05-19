@@ -2,9 +2,9 @@ package ggp.crudup.config;
 
 import javax.sql.DataSource;
 
-import ggp.crudup.dao.IUserDAO;
-import ggp.crudup.dao.impl.UserDAO;
 import ggp.crudup.entity.User;
+import ggp.crudup.services.UserService;
+import ggp.crudup.services.impl.UserServiceDbHandler;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
@@ -27,9 +26,10 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "ggp.crudup")
 public class AppConfig extends WebMvcConfigurerAdapter {
+
     @Bean
-    public IUserDAO UserDAO() {
-        return new UserDAO();
+    public UserService getUserService(){
+        return new UserServiceDbHandler();
     }
 
    @Bean

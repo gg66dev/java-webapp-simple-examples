@@ -1,8 +1,9 @@
 package ggp.crudup.controller;
  
-import ggp.crudup.dao.IUserDAO;
 import ggp.crudup.entity.User;
 import ggp.crudup.form.UserForm;
+import ggp.crudup.services.UserService;
+import ggp.crudup.utils.Converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.Column;
 import java.util.List;
 import java.util.Map;
  
@@ -22,10 +24,10 @@ import java.util.Map;
  */
  
 @Controller
-public class MainController {
+public class UserController {
 
 	@Autowired
-	private IUserDAO UserDAO;
+	private UserService userService;
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -37,7 +39,7 @@ public class MainController {
 	@RequestMapping("/users")
 	public String users(Model model) {
 
-		List<User> users = UserDAO.getAllUser();
+		List<User> users = userService.getUsers();
 		model.addAttribute("users",users);
 
 		return "users";
@@ -50,13 +52,22 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/user-new" , method = RequestMethod.POST)
-	public String newUserPOST(@ModelAttribute("userForm") UserForm userForm){
+	public String newUserPOST(
+			Model model,
+			@ModelAttribute("userForm") UserForm userForm){
 
 		String username  = userForm.getName();
 		String email  = userForm.getEmail();
+		String phone = userForm.getPhone();
+
+		System.out.println("username: " + username + "  ,email: "+ email + "  ,phone: " + phone);
+		if(username != null && email != null && phone != null)
+			userService.saveUser(Converter.convertTo(userForm));
 
 		System.out.println("username: " + username + "  ,email: "+ email);
 
 		return "users";
 	}
+
 }
+

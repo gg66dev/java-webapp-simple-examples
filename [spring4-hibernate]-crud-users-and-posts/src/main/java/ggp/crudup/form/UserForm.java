@@ -1,5 +1,6 @@
 package ggp.crudup.form;
 
+
 /**
  * Created by Gustavo Pfeifer on 04/05/2017.
  */
@@ -7,6 +8,11 @@ public class UserForm {
 
     private String name;
     private String email;
+    private String phone;
+    private String street;
+    private String suite;
+    private String city;
+    private String zipCode;
 
     public UserForm(){}
 
@@ -29,5 +35,45 @@ public class UserForm {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getSuite() {
+        return suite;
+    }
+
+    public void setSuite(String suite) {
+        this.suite = suite;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 }

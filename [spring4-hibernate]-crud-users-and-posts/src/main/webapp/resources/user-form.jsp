@@ -29,6 +29,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <![endif]-->
     <style>
         .row{
@@ -71,7 +72,7 @@
         <div class="row">
             <div class="col-md-6 col-lg-6 well">
                 <c:if test='${ errorMessage}'>
-                <div class="alert alert-danger">
+                <div id="error_message" class="alert alert-danger">
                     The next fieds are required!!
                     <ul>
                         <c:if test='${ empty userForm.name }'>
@@ -95,7 +96,7 @@
                             <c:if test='${ empty userForm.name  && errorMessage}'>
                                 <c:set value="form-control required" var="cssClass"></c:set>
                             </c:if>
-                            <form:input path="name"  cssClass="${cssClass}" placeholder="Name"/>
+                            <form:input id="name_field" path="name"  cssClass="${cssClass}" placeholder="Name"/>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
@@ -103,7 +104,10 @@
                             <c:if test='${ empty userForm.email  && errorMessage}'>
                                 <c:set value="form-control required" var="cssClass"></c:set>
                             </c:if>
-                            <form:input path="email" cssClass="${cssClass}"      placeholder="Email"/>
+                            <form:input id="email_field" path="email" cssClass="${cssClass}"      placeholder="Email"/>
+                            <div id="email_error_message" class="alert alert-danger" style="display: none;">
+                                <p>formato invalido</p>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
@@ -111,7 +115,7 @@
                             <c:if test='${ empty userForm.phone  && errorMessage}'>
                                 <c:set value="form-control required" var="cssClass"></c:set>
                             </c:if>
-                            <form:input path="phone" cssClass="${cssClass}" placeholder="Phone"/>
+                            <form:input id="phone_field" path="phone" cssClass="${cssClass}" placeholder="Phone"/>
                         </div>
                     </fieldset>
                     <fieldset formGroupName="address">
@@ -146,4 +150,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
+<script>
+    //valida email
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+    $( "#email_field" )
+        .focusout(function() {
+            var email = $(this).val();
+            if(email.length > 0){
+                if(validateEmail(email)){
+                    $("#email_error_message").hide();
+                }else{
+                    $("#email_error_message").show();
+                }
+            }
+        });
+
+
+</script>
 </html>

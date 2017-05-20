@@ -35,12 +35,8 @@
             cursor: hand;
         }
     </style>
-    <script>
-        function deleteUser(){
-            console.log("click");
-        }
-    </script>
 
+    <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -74,7 +70,7 @@
         <a class="btn btn-primary" href="user-new" role="button">Add User</a>
     </p>
     <div>
-        <table class="table table-bordered">
+        <table id="user_table" class="table table-bordered">
             <thead>
             <tr>
                 <th>Name</th>
@@ -111,6 +107,13 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(function(){
+        $("#user_table").DataTable();
+    });
+
+</script>
 </body>
 </html>

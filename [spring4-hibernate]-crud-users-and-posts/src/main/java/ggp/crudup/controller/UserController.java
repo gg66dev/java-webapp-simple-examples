@@ -8,13 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.persistence.Column;
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Map;
  
@@ -70,5 +68,23 @@ public class UserController {
 		return "user-form";
 	}
 
+	@RequestMapping(value = "/validate/{field}", method = RequestMethod.GET)
+	public @ResponseBody
+	boolean validateField(
+			@PathVariable(value="field") String field,
+			@RequestParam(value = "value", required = true) String value
+	){
+		if(field != null && field.length() > 0 && value != null && value.length() > 0 ){
+			User user = null;
+			if(field.equals("name")){
+				user = userService.getUserByName(value);
+			}else if(field.equals("email")){
+				user = userService.getUserByEmail(value);
+			}
+			if(user != null)
+				return true;
+		}
+		return false;
+	}
 }
 

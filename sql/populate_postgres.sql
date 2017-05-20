@@ -8,7 +8,7 @@ RAISE NOTICE 'create schema and table';
 CREATE SCHEMA IF NOT EXISTS simpleapp_crud_up;
 DROP TABLE IF EXISTS simpleapp_crud_up.up_users CASCADE;
 CREATE TABLE  simpleapp_crud_up.up_users ( 
-	 id BIGSERIAL PRIMARY KEY,
+	 id SERIAL PRIMARY KEY, -- implicit serial : up_users_id_seq
 	 username VARCHAR(100),
 	 email VARCHAR(100),
 	 phone VARCHAR(100),
@@ -21,16 +21,7 @@ CREATE TABLE  simpleapp_crud_up.up_users (
 );
 
 GRANT ALL PRIVILEGES ON TABLE simpleapp_crud_up.up_users TO hibernate_app;
-$do$
-
-
-create sequence user_idClass_seq
-  start with 13
-  increment by 1;
-$do$
-
-GRANT USAGE ON SEQUENCE user_idClass_seq TO hibernate_app ;
-$do$
+GRANT USAGE ON SEQUENCE simpleapp_crud_up.up_users_id_seq TO hibernate_app ;
 
 RAISE NOTICE 'insert values';
 INSERT INTO simpleapp_crud_up.up_users(username,email,phone,street,suite,city,zipcode)

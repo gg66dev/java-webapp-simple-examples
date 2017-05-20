@@ -76,4 +76,10 @@ public class UserForm {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+
+    public boolean isValid() {
+        return name != null && !name.equals("")  &&
+                email != null && !email.equals("") &&
+                phone != null && !phone.equals("");
+    }
 }

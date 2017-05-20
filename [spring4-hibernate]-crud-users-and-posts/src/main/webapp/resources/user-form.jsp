@@ -34,6 +34,10 @@
         .row{
             font-size: 50%;
         }
+
+        .required{
+            border: 1px solid red;
+        }
     </style>
 </head>
 
@@ -66,20 +70,48 @@
     <h1> Users <h1>
         <div class="row">
             <div class="col-md-6 col-lg-6 well">
+                <c:if test='${ errorMessage}'>
+                <div class="alert alert-danger">
+                    The next fieds are required!!
+                    <ul>
+                        <c:if test='${ empty userForm.name }'>
+                            <li><strong>User</strong></li>
+                        </c:if>
+                        <c:if test='${ empty userForm.email }'>
+                                <li><strong>Email</strong></li>
+                        </c:if>
+                        <c:if test='${ empty userForm.phone }'>
+                            <li><strong>Phone</strong></li>
+                        </c:if>
+                    </ul>
+                </div>
+                </c:if>
                 <form:form method="post" action="user-new"  modelAttribute="userForm">
                     <fieldset>
                         <legend>User</legend>
                         <div class="form-group">
                             <label>Name</label>
-                            <form:input path="name"  cssClass="form-control" placeholder="Name"/>
+                            <c:set value="form-control" var="cssClass"></c:set>
+                            <c:if test='${ empty userForm.name  && errorMessage}'>
+                                <c:set value="form-control required" var="cssClass"></c:set>
+                            </c:if>
+                            <form:input path="name"  cssClass="${cssClass}" placeholder="Name"/>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <form:input path="email" cssClass="form-control" placeholder="Email"/>
+                            <c:set value="form-control" var="cssClass"></c:set>
+                            <c:if test='${ empty userForm.email  && errorMessage}'>
+                                <c:set value="form-control required" var="cssClass"></c:set>
+                            </c:if>
+                            <form:input path="email" cssClass="${cssClass}"      placeholder="Email"/>
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <form:input path="phone" cssClass="form-control" placeholder="Phone"/>
+                            <c:set value="form-control" var="cssClass"></c:set>
+                            <c:if test='${ empty userForm.phone  && errorMessage}'>
+                                <c:set value="form-control required" var="cssClass"></c:set>
+                            </c:if>
+                            <form:input path="phone" cssClass="${cssClass}" placeholder="Phone"/>
                         </div>
                     </fieldset>
                     <fieldset formGroupName="address">

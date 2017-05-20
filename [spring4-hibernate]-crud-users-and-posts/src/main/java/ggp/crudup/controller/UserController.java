@@ -48,6 +48,7 @@ public class UserController {
 	@RequestMapping(value = "/user-new" , method = RequestMethod.GET)
 	public String newUserGET(Model model){
 		model.addAttribute("userForm",new UserForm());
+		model.addAttribute("errorMessage",false);
 		return "user-form";
 	}
 
@@ -56,17 +57,17 @@ public class UserController {
 			Model model,
 			@ModelAttribute("userForm") UserForm userForm){
 
-		String username  = userForm.getName();
-		String email  = userForm.getEmail();
-		String phone = userForm.getPhone();
-
-		System.out.println("username: " + username + "  ,email: "+ email + "  ,phone: " + phone);
-		if(username != null && email != null && phone != null)
+		if(userForm.isValid()){
 			userService.saveUser(Converter.convertTo(userForm));
+			List<User> users = userService.getUsers();
+			model.addAttribute("users",users);
+			return "users";
+		}
 
-		System.out.println("username: " + username + "  ,email: "+ email);
 
-		return "users";
+		model.addAttribute("errorMessage",true);
+		model.addAttribute("userForm",userForm);
+		return "user-form";
 	}
 
 }

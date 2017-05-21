@@ -24,14 +24,14 @@
     <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="resources/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="resources/app/css/user-form.css" rel="stylesheet">
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="resources/vendor/jquery.dataTables/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="resources/app/css/user-form.css" rel="stylesheet">
 </head>
 
 <body>
@@ -151,90 +151,17 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="resources/vendor/jquery/1.12.4/jquery.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-</body>
+<script src="resources/app/js/user-form.js"></script>
 
 <script>
-
-    var userSevices = (function(){
-
-        function _isFunction(functionToCheck) {
-            var getType = {};
-            return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
-        }
-
-        return {
-          //call to the service to check if name is already taken.
-          fieldAlreadyExist : function(field,name, cb){
-              $.ajax({
-                  url: "http://localhost:9090/crud-users-and-posts/validate/"+field+"?value="+name,
-                  success: function(data){
-                    if(_isFunction(cb)){
-                        cb(data);
-                    }
-                  },
-                  error: function(err){
-                    console.log(err);
-                  }
-              });
-          }
-        };
-    })();
-
-
-    //valida email
-    function validateEmail(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-    $("#email_field")
-        .focusout(function() {
-            var email = $(this).val();
-            if(email.length > 0){
-                if(validateEmail(email)){
-                    $("#email_error_message").html("");
-                    $("#email_error_message").hide();
-                    userSevices.fieldAlreadyExist("email",email,function(isTaken){
-                        if(!isTaken){
-                            $("#email_error_message").hide();
-                            $("#email_success_message").show();
-                        }else{
-                            $("#email_error_message").html("<p>This email is already registered</p>");
-                            $("#email_error_message").show();
-                            $("#email_success_message").hide();
-                        }
-                    });
-                }else{
-                    $("#email_error_message").html("<p>invalid format</p>");
-                    $("#email_error_message").show();
-                }
-            }else{
-                $("#email_error_message").html("");
-                $("#email_error_message").hide();
-                $("#email_success_message").hide();
-            }
+    $( document ).ready(function() {
+        userFormModule.init({
+            "parent_host": '<c:out value="${parentHost}" />'
         });
-
-    $("#name_field")
-        .focusout(function(){
-            var name = $(this).val();
-            if(name.length > 0) {
-                userSevices.fieldAlreadyExist("name",name,function(isTaken){
-                    if(!isTaken){
-                        $("#name_error_message").hide();
-                        $("#name_success_message").show();
-                    }else{
-                        $("#name_error_message").html("<p>This name is already registered</p>");
-                        $("#name_error_message").show();
-                        $("#name_success_message").hide();
-                    }
-                });
-            }else{
-                $("#name_error_message").html("");
-                $("#name_error_message").hide();
-                $("#name_success_message").hide();
-            }
-        });
+    });
 
 
 </script>
+
+</body>
 </html>

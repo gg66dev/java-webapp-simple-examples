@@ -103,12 +103,7 @@
 <script src="resources/vendor/jquery/1.12.4/jquery.min.js"></script>
 <script src="resources/vendor/jquery.dataTables/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="resources/app/js/users.js"></script>
 
-<script>
-    $(function(){
-        $("#user_table").DataTable();
-    });
-
-</script>
 </body>
 </html>

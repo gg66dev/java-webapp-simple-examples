@@ -47,6 +47,7 @@ public class UserController {
 	public String newUserGET(Model model){
 		model.addAttribute("userForm",new UserForm());
 		model.addAttribute("errorMessage",false);
+		model.addAttribute("parentHost","http://localhost:9090/crud-users-and-posts");
 		return "user-form";
 	}
 

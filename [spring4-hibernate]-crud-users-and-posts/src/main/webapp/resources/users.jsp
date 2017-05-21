@@ -29,16 +29,10 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-        .glyphicon-remove{
-            cursor: pointer;
-            cursor: hand;
-        }
-    </style>
 
-    <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="resources/vendor/jquery.dataTables/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="resources/app/css/users.css" rel="stylesheet">
 </head>
-
 <body>
 
 <!-- Fixed navbar -->
@@ -106,9 +100,10 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="resources/vendor/jquery/1.12.4/jquery.min.js"></script>
+<script src="resources/vendor/jquery.dataTables/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
 <script>
     $(function(){
         $("#user_table").DataTable();

@@ -24,22 +24,14 @@
     <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="resources/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="resources/app/css/user-form.css" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <![endif]-->
-    <style>
-        .row{
-            font-size: 50%;
-        }
-
-        .required{
-            border: 1px solid red;
-        }
-    </style>
 </head>
 
 <body>
@@ -68,7 +60,7 @@
 <div class="container theme-showcase" role="main" style="margin-top: 50px;">
 
 
-    <h1> Users <h1>
+    <h1> Users </h1>
         <div class="row">
             <div class="col-md-6 col-lg-6 well">
                 <c:if test='${ errorMessage}'>
@@ -157,7 +149,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="resources/vendor/jquery/1.12.4/jquery.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
 

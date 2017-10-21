@@ -1,6 +1,10 @@
 package com.hibernatesimpleapp.config;  
 
 import javax.sql.DataSource;
+
+import com.hibernatesimpleapp.dao.*;
+import com.hibernatesimpleapp.entity.Post;
+import com.hibernatesimpleapp.entity.PostDetails;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
@@ -9,8 +13,6 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import com.hibernatesimpleapp.dao.IPersonDao;
-import com.hibernatesimpleapp.dao.PersonDao;
 import com.hibernatesimpleapp.entity.Person;
 
 @Configuration 
@@ -20,6 +22,19 @@ public class AppConfig {
 	public IPersonDao personDao() {  
 		return new PersonDao();  
 	}
+
+	@Bean
+	public IPostDao postDao() {
+		return new PostDao();
+	}
+
+	@Bean
+	public IPostDetailsDao postDetailDao() {
+		return new PostDetailsDao();
+	}
+
+
+
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
@@ -28,6 +43,8 @@ public class AppConfig {
 	public SessionFactory sessionFactory() {
 		return new LocalSessionFactoryBuilder(getDataSource())
 		   .addAnnotatedClasses(Person.class)
+		   .addAnnotatedClasses(Post.class)
+		   .addAnnotatedClasses(PostDetails.class)
 		   .buildSessionFactory();
 	}
 	@Bean

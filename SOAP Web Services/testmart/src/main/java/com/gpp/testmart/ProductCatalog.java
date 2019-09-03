@@ -1,5 +1,8 @@
 package com.gpp.testmart;
 
+import com.gpp.testmart.business.ProductServiceImpl;
+
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +10,21 @@ import java.util.List;
 @WebService
 public class ProductCatalog {
 
+    ProductServiceImpl productService = new ProductServiceImpl();
+
+    @WebMethod
     public  List<String> getProductCategories() {
-        List<String> categories = new ArrayList<>();
-        categories.add("Books");
-        categories.add("Music");
-        categories.add("Movies");
-        return categories;
+        return productService.getProductCategories();
+    }
+
+    @WebMethod
+    public List<String> getProducts(String category) {
+        return productService.getProducts(category);
+    }
+
+    @WebMethod
+    public boolean addProduct(String category, String product) {
+        return productService.addProduct(category, product);
     }
 
 }

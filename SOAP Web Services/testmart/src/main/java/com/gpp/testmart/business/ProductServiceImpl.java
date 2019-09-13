@@ -1,5 +1,7 @@
 package com.gpp.testmart.business;
 
+import com.gpp.testmart.model.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,4 +64,10 @@ public class ProductServiceImpl {
     }
 
 
+    public List<Product> getProductsv2(String category) {
+        List<Product> productList = new ArrayList<>();
+        productList.add(new Product("Java Brains Book", "1234",99999.99));
+        productList.add(new Product("Other Book", "ABC",12.50));
+        return productList;
+    }
 }

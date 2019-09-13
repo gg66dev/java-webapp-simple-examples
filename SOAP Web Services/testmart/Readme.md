@@ -1,8 +1,9 @@
 Glassfish Settings
 ====================
 
-* glassfish version : 4.1.1
+* glassfish version : 4.1.2
 * jre: jdk7
+
 
 ### Observation
 
@@ -22,3 +23,9 @@ set JAVA_HOME="C:\bin\jdk1.7.0_80"
 
 * wrong web.xml produce that glassfish does not detect the webservice annotation. To solve
 this problem the file web.xml was removed.
+
+App settings
+=============
+* javaEE7
+* JDK 1.7
+
